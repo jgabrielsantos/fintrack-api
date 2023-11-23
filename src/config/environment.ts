@@ -16,5 +16,9 @@ export const environment = {
       clientId: process.env.AWS_COGNITO_CLIENT_ID as string,
       userPoolId: process.env.AWS_COGNITO_USER_POOL_ID as string
     }
+  },
+  plaid: {
+    clientId: process.env.PLAID_CLIENT_ID,
+    secret: process.env.PLAID_SECRET
   }
 }

@@ -11,19 +11,27 @@ datasource db {
 }
 
 model Plan {
-  id            String   @db.Uuid @unique @default(dbgenerated("gen_random_uuid()"))
-  tier          String   @unique
-  price         Int
-  bankAmount    Int      @map("bank_amount")
-  accountAmount Int      @map("account_amount")
-  users         User[]
+  id              String    @db.Uuid @unique @default(dbgenerated("gen_random_uuid()"))
+  tier            String    @unique
+  price           Int
+  bankAmount      Int       @map("bank_amount")
+  accountAmount   Int       @map("account_amount")
+  users           User[]
 }
 
 model User {
-  id              String    @db.Uuid @unique @default(dbgenerated("gen_random_uuid()"))
-  authProviderId  String    @unique @map("auth_provider_id")
-  plan            Plan      @relation(fields: [planId], references: [id])
-  planId          String    @db.Uuid @map("plan_id")
-  createdAt       DateTime  @default(now()) @map("created_at")
-  updatedAt       DateTime  @updatedAt @map("updated_at")
+  id                  String      @db.Uuid @unique @default(dbgenerated("gen_random_uuid()"))
+  authProviderId      String      @unique @map("auth_provider_id")
+  plan                Plan        @relation(fields: [planId], references: [id])
+  planId              String      @db.Uuid @map("plan_id")
+  banks               Bank[]
+  createdAt           DateTime    @default(now()) @map("created_at")
+  updatedAt           DateTime    @updatedAt @map("updated_at")
+}
+
+model Bank {
+  id            String    @unique
+  accessToken   String    @unique @map("access_token")
+  user          User      @relation(fields: [userId], references: [id])
+  userId        String    @db.Uuid @unique @map("user_id")
 }

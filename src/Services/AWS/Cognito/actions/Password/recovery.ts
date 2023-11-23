@@ -5,7 +5,7 @@ type CognitoPasswordRecoveryTypes = {
 }
 
 export const cognitoPasswordRecovery = async ({ email }: CognitoPasswordRecoveryTypes) => {
-  const recovery = await provider().forgotPassword({
+  const recovery = await provider.forgotPassword({
     username: email
   })
 

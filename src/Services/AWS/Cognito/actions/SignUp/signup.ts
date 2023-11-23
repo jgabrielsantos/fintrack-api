@@ -9,7 +9,7 @@ type CognitoSignUpTypes = {
 }
 
 export const cognitoSignup = async ({givenName, familyName, phoneNumber, email, password}: CognitoSignUpTypes) => {
-  const signup = await provider().signUp({
+  const signup = await provider.signUp({
     username: email,
     password,
     attributes: [

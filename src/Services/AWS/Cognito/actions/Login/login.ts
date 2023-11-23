@@ -6,7 +6,7 @@ type CognitoLoginTypes = {
 }
 
 export const cognitoLogin = async ({email, password}: CognitoLoginTypes) => {
-  const login = await provider().login({
+  const login = await provider.login({
     username: email,
     password
   })

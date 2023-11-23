@@ -14,7 +14,7 @@ export const seedUsers = async () => {
     ])
     await prismaClient.user.create({
       data: {
-        authProviderId: '39bad851-89c3-4560-a57e-16fb1dc936ca',
+        authProviderId: 'cbaac1b8-d16f-436e-a620-034883b57774',
         planId: freePlan?.id || ''
       }
     })

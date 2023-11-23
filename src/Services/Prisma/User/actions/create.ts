@@ -1,14 +1,11 @@
-import { PrismaClient } from "@prisma/client";
-
-
-const prismaClient = new PrismaClient()
+import { prismaClient } from "../../client";
 
 export const prismaUserCreate = async ({ authProviderId }: Record<string, string>) => {
   try {
     await prismaClient.user.create({
       data: {
         authProviderId,
-        planId: 'fedc141a-87d0-4e98-a677-ff407781b033'
+        planId: '1479aaa9-d0ce-4fa7-99d4-a0a1656587a4'
       }
     })
   } catch (error) {

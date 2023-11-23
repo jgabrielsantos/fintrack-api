@@ -6,7 +6,7 @@ type CognitoSignUpConfirmationTypes = {
 }
 
 export const cognitoSignUpConfirmation = async ({ email, code }: CognitoSignUpConfirmationTypes) => {
-  const confirmation = await provider().confirmSignUp({
+  const confirmation = await provider.confirmSignUp({
     username: email,
     code
   })

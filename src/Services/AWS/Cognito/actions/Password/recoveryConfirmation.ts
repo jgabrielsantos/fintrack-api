@@ -7,7 +7,7 @@ type CognitoPasswordRecoveryConfirmationTypes = {
 }
 
 export const cognitoPasswordRecoveryConfirmation = async ({email, newPassword, code}: CognitoPasswordRecoveryConfirmationTypes) => {
-  const confirmation = await provider().confirmForgotPassword({
+  const confirmation = await provider.confirmForgotPassword({
     username: email,
     newPassword,
     code

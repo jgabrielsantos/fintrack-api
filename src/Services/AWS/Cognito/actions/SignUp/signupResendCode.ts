@@ -5,7 +5,7 @@ type CognitoSignUpResendCodeTypes = {
 }
 
 export const cognitoSignUpResendCode = async ({ email }: CognitoSignUpResendCodeTypes) => {
-  const resendCode = await provider().resendSignUpConfirmationCode({
+  const resendCode = await provider.resendSignUpConfirmationCode({
     username: email
   })
 
