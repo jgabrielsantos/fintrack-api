@@ -12,11 +12,6 @@ export const plaidGetInstitution = async ({ institutionId }: PlaidGetInstitution
       country_codes: [CountryCode.Ca]
     })
 
-    console.log({
-      institutionId,
-      data
-    })
-
     return data
   } catch (error: any) {
     console.error(error.message)
