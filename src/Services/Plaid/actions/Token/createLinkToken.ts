@@ -1,5 +1,6 @@
 import { CountryCode, Products } from "plaid"
 import { plaidClientProvider } from "../../clientProvider"
+import { prismaClient } from "../../../Prisma/client"
 
 type CreateLinkTokenProps = {
   user: {
@@ -36,5 +37,7 @@ export const createLinkToken = async ({
     return {
       Error: `Plaid Token error: ${error.message}`
     }
+  } finally {
+    prismaClient.$disconnect()
   }
 }

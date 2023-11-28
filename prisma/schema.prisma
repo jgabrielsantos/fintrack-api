@@ -33,5 +33,5 @@ model Bank {
   id            String    @unique
   accessToken   String    @unique @map("access_token")
   user          User      @relation(fields: [userId], references: [id])
-  userId        String    @db.Uuid @unique @map("user_id")
+  userId        String    @db.Uuid @map("user_id")
 }

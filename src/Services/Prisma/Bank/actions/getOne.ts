@@ -6,7 +6,7 @@ type PrismaGetBankProps = {
 
 export const prismaGetBank = async ({ userId }: PrismaGetBankProps) => {
   try {
-    const bank = await prismaClient.bank.findUnique({
+    const bank = await prismaClient.bank.findMany({
       where: {
         userId
       }

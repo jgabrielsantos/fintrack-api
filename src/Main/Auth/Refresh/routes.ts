@@ -40,10 +40,10 @@ refreshRoutes.post('/refresh', async (req: Request, res: Response) => {
           phoneNumber: attributes.phone_number
         },
         tokens: {
-          banksToken: [{
+          banksToken: bank.map(bank => ({
             id: bank?.id as string,
             accessToken: bank?.accessToken as string
-          }],
+          })),
           accessToken: token.accessToken
         }
       })
